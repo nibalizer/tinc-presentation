@@ -51,15 +51,30 @@ Features
   * This means SSH connections don't DC when laptop sleeps
   * Laptop has permanent IP address
 
-Installation
-============
+Installation - Install the package
+==================================
 
 * TODO (Diagram of distro logos)
 * Install the package (tinc)
+
+Installation - Make config files
+================================
+
 * mkdir /etc/tinc/$NETWORK for config files
 * mkdir /etc/tinc/$NETWORK/hosts to list hosts
 * edit /etc/tinc/$NETWORK/tinc.conf
 * (Code-block for tinc.conf)
+
+.. code-block:: bash
+   :emphasize-lines 2
+
+   $ cat /etc/tinc/examplenet/tinc.conf
+   Name = laptop
+   AddressFamily = ipv4
+
+Installation - Connect to Node (Optional)
+=========================================
+
 * Add a host to connect to (codeblock for host config file)
 
 Is it working?
