@@ -272,7 +272,7 @@ Let's do the hippest thing imaginable
 =====================================
 
 
-.. figure:: _static/dangerous-forklift.jpg
+.. figure:: _static/consul-logo.png
    :align: center
 
 
