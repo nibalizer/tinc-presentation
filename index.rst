@@ -87,6 +87,7 @@ The Network
     * Use this with my friends
       ** not prod lol
     * Bringing back the network
+    ** https as the only service sucks
     * University Network
     * LAN Parties
     * Services
@@ -184,102 +185,129 @@ https://github.com/nibalizer/tincstat
    * the motivation for me was to put it into my statusbar on my computer
 
 
-
-Tincd
-=====
-
-* Very similar to other services
-* Config files in /etc/tinc/$NET
-* First run, generate pubkey/privkey: tincd -K -n $NET
-* tincd -n $NET --no-detach
-* Fun with Signals!
-
-
-Features
+Now What
 ========
 
-* Security (auto-rekeying)
-* Convenience
-  * New host discovery
-  * Auto-rekeying
-  * Autoreconnect after network blip
-  * Packet buffering means reconnects are transparent
-  * This means SSH connections don't DC when laptop sleeps
-  * Laptop has permanent IP address
 
-Installation - Install the package
-==================================
+.. figure:: _static/malcom.jpg
+   :align: center
 
-* TODO (Diagram of distro logos)
-* Install the package (tinc)
 
-Installation - Make config files
-================================
-
-* mkdir /etc/tinc/$NETWORK for config files
-* mkdir /etc/tinc/$NETWORK/hosts to list hosts
-* edit /etc/tinc/$NETWORK/tinc.conf
-* (Code-block for tinc.conf)
-
-.. code-block:: bash
-   :emphasize-lines 2
-
-   $ cat /etc/tinc/examplenet/tinc.conf
-   Name = laptop
-   AddressFamily = ipv4
-
-Installation - Connect to Node (Optional)
-=========================================
-
-* Add a host to connect to (codeblock for host config file)
-
-Is it working?
-==============
-
-* Start up tincd with --no-detach
-* Signals!
-  * SIGHUP - Reread config file, open/close connections
-  * ALRM - Reconnect to all hosts
-  * INT (^c) - Increase debug level to 5, again to revert
-  * USR1 - Prints connection list
-  * USR2 - Prints all the info
-* Tincstat (github.com/nibalizer/tincstat)
-
-Security
+Services
 ========
 
-* TODO (Picture of big padlock)
-* TODO (Add more content)
-* Transitive trust - everybody trusts everybody
+* A few things can just be turned on immediately
 
-What now?
-=========
+ * Apache
+ * UPnP
+ * VLC Streaming
+ * StarCraft
 
-* TODO (Screenshot of ping window showing responses)
 
-DNS
-===
+A Problem Arises
+================
 
-* TODO (Screenshot of BIND file)
 
-Service Autodiscovery
-=====================
+* DNS
 
-* We tried Etcd
-  * A user wrote libnss-etcd for hostname resolution
-* Eventually switched to Consul
-  * Cluster runs across Tinc VPN
-  * Handles disconnect/reconnects much better than Etcd
 
-What to store in our HA key-value DB?
+.. note::
+
+  * You think its dns at first, and we did
+  * Solved it the way we thought we should, with hosts files
+  * Briefly ran a bind server, that didn't scale
+  * The problem is there isn't one admin domain, there are many
+  * Even with domains solved, how would we say what protocols?
+  * The need is for something mutable and highly available
+
+
+The Requirements
+================
+
+Something mutable and highly available
+
+
+.. note::
+  * mutable because many people need to modify it
+  * highly available because nodes die all the time
+
+
+Let's do something Hip
+======================
+
+
+
+.. figure:: _static/Etcd.png
+   :align: center
+
+
+.. note::
+  * etcd is software from coreos
+  * originally designed to store configs for docker because docker is write
+  * sometimes refered to as a 'distributed lock manager'
+  * raft consensus protocol
+  * hierarchal key-value store
+  * highly available, can be configured for n+2
+  * start writing hostname -> ip mappings in it
+  * working on a script to dump etcd keys and output a hosts file or something
+
+
+Let's do something stupid
+=========================
+
+
+.. figure:: _static/dangerous-forklift.jpg
+   :align: center
+
+.. note::
+  * how many people know what libnss is
+  * name service switcher
+  * turns out you can write endpoints for the name service switcher
+  * in c
+  * someone writes a libnss-etcd, which basically just shells out to the etcdctl utility
+  * dns is solved!
+
+
+Let's do the hippest thing imaginable
 =====================================
 
-* DNS information
-* Autofs + NFS
-* Host information
+
+.. figure:: _static/dangerous-forklift.jpg
+   :align: center
+
+
+.. note::
+  * consul was going to come back
+  * turns out the janky c code to get in the way of dns lookups, that was build into consul
+  * consul can respond for keys inside dns
+  * consul can also do nagios-like healthchecks, to evaluate which services have died and which have not
+  * these are hackers so services are going up and going down all the time
+
+
+Demo
+====
+
+
+Neat Tricks
+===========
+
+
+* Laptops and other "behind nat" devices have permanent ip addrs
+* Backup Device
+* Any daemon can ping your laptop, laptop can run services
+* BroodWar over tinc
+* SSH doesn't timeout
+* Transpacific
+
 
 NFS
 ===
+
+* NFS + AutoFS works great on tinc
+* Read-Only mounts mostly
+* Could even do nfs-homedir for a laptop user
+
+
 
 X11
 ===
@@ -289,3 +317,33 @@ X11
 * Ever wonder what DISPLAY=:0 was actually doing?
   * Can set DISPLAY=192.168.1.100:0 to run over a network
   * Useful combined with xpra (screen for X)
+
+
+
+Conclusions
+===========
+
+* Tinc can be used to build an overlay network
+* Direct application of that to a real problem is hard
+* Consul and Etcd are robust, but obtuse to work with as a human
+* StarCraft is an excellent game
+
+
+Thank You
+=========
+
+.. figure:: _static/spencer_face.jpg
+   :align: left
+
+Spencer Krum
+
+IBM
+
+@nibalizer
+
+nibz@spencerkrum.com
+
+https://github.com/nibalizer/tinc-presentation
+
+
+
