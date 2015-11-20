@@ -298,7 +298,7 @@ extensions += [
 ]
 
 slide_title = 'Secure Peer Networking with TINC'
-slide_theme = 'slides'
+slide_theme = 'single-level'
 slide_levels = 3
 
 # Place custom static assets in the _static directory and uncomment

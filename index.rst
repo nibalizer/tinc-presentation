@@ -3,32 +3,149 @@
    hieroglyph-quickstart on Sun Nov 15 21:40:13 2015.
 
 
+================================
 Secure Peer Networking with TINC
 ================================
 
-Contents:
+Spencer Krum
 
-.. toctree::
-   :maxdepth: 2
+IBM
+
+@nibalizer
+
+nibz@spencerkrum.com
+
+.. note::
+
+   * Who am I
+   * What do I work on
+   * github
 
 
-What is TINC?
+Logos
+=====
+
+
+.. figure:: _static/tinc-logo.png
+   :align: left
+   :width: 300px
+
+.. figure:: _static/consul-logo.png
+   :align: right
+   :width: 300px
+
+
+.. note::
+
+   * I've wanted to give this talk for a long time
+   * This is a talk about tinc
+   * A little about consul
+
+
+Tinc is a VPN
 =============
 
-* Mesh VPN
-* Different than point-to-point VPNs like OpenVPN
-* Mature codebase, written in C
-* Portable (\*nix, Windows, Android, IOS incoming)
+.. figure:: _static/A-VPN-is-best-for-maintaining-online-security.gif
+   :align: center
+
+
+.. note::
+    * Mesh VPN
+    * Different than point-to-point VPNs like OpenVPN
+
+
+
+Tinc Fast Facts
+===============
+
+
+.. figure:: _static/year-2000-nokia.jpg
+   :align: center
+
+
+.. note::
+
+    * Written in C
+    * Started in 1998, first commited to src in 2000
+    * Portable (\*nix, Windows, Android, IOS incoming)
+    * Daemon
+    * 99% 2 Developers
+    * 15 % link speed slowdown in the cloud
+    * Port 655 in /etc/services
+    * freenode channel
+
+
+The Network
+===========
+
+
+.. figure:: _static/the-network-is-the-computer.jpg
+   :align: center
+
+.. note::
+
+    * Use this with my friends
+      ** not prod lol
+    * Bringing back the network
+    * University Network
+    * LAN Parties
+    * Services
+    * Blurry line between workstation and server
+    * we run it on laptops and home routers and the occasional rackmount gear
+
+
 
 VPN & Network
 =============
 
-* TODO (Diagram of architecture)
-* Flat IP space
-* Daemon = node
-* Each daemon responsible for a subnet
-* Edges shared between nodes on connect
-* Continually probes for most efficient routes
+.. figure:: _static/tinc_dot.png
+   :align: center
+
+
+.. note::
+
+
+  * this pic Generated every minute
+  * Flat IP space
+  * Daemon = node
+  * Each daemon responsible for a subnet and an ip addr
+  * Continually probes for most efficient routes
+  * Re-routes around failures
+
+
+VPN & Network
+=============
+
+.. figure:: _static/tinc_consulstart_network1.png
+   :align: center
+
+.. note::
+
+   * tinc has a concept of 'connect to'
+   * Connections don't have to be reflexive
+   * Netwokr trafic is bidirectional regardless
+   * These nodes are laptops or servers or home routers
+   * basically comes down to which nodes have a known public ip
+   * public/private keys
+
+
+Getting Status
+==============
+
+
+.. code-block:: bash
+   :emphasize-lines: 3,7
+
+   Edges:
+     bkero to spencer at 131.xxx.xx.xx  weight 1538
+     spencer to bkero at 216.xxx.xx.xx  weight 1538
+   End of edges.
+   Subnet list:
+     10.11.11.128/25#10 owner spencer
+     10.11.22.0/24#10 owner bkero
+   End of subnet list.
+
+
 
 Tincd
 =====
@@ -38,6 +155,7 @@ Tincd
 * First run, generate pubkey/privkey: tincd -K -n $NET
 * tincd -n $NET --no-detach
 * Fun with Signals!
+
 
 Features
 ========
