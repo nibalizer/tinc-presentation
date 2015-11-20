@@ -134,7 +134,9 @@ Getting Status
 
 
 .. code-block:: bash
-   :emphasize-lines: 3,7
+   :emphasize-lines: 5,9
+
+   kill -USR2 $(pidof tincd); tail /var/log/syslog
 
    Edges:
      bkero to spencer at 131.xxx.xx.xx  weight 1538
@@ -144,6 +146,42 @@ Getting Status
      10.11.11.128/25#10 owner spencer
      10.11.22.0/24#10 owner bkero
    End of subnet list.
+
+
+.. note::
+
+   * tinc uses signals to communicate
+   * dumps to syslog by default
+   * ALRM, USR1, USR2, HUP, INT
+
+
+Getting Status (Improved)
+=========================
+
+
+.. code-block:: bash
+
+   curl -s -i http://127.0.0.1:9000/tincstat
+   {
+     "total_bytes_in": 115324,
+     "total_bytes_out": 67990,
+     "connections": [
+       {
+         "name": "bkero",
+         "ip": "216.xx.xx.xx",
+         "port": 4545
+       }
+     ]
+   }
+
+
+https://github.com/nibalizer/tincstat
+
+
+.. note::
+   * go utility
+   * run as a daemon, partialy parses the log output
+   * the motivation for me was to put it into my statusbar on my computer
 
 
 
