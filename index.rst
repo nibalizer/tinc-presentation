@@ -26,11 +26,11 @@ Logos
 =====
 
 
-.. figure:: _static/tinc-logo.png
+.. figure:: _static/tinc-logo.jpg
    :align: left
    :width: 300px
 
-.. figure:: _static/consul-logo.png
+.. figure:: _static/consul-logo.jpg
    :align: right
    :width: 300px
 
@@ -45,7 +45,7 @@ Logos
 Tinc is a VPN
 =============
 
-.. figure:: _static/A-VPN-is-best-for-maintaining-online-security.gif
+.. figure:: _static/A-VPN-is-best-for-maintaining-online-security.jpg
    :align: center
 
 
@@ -99,7 +99,7 @@ The Network
 VPN & Network
 =============
 
-.. figure:: _static/tinc_dot.png
+.. figure:: _static/tinc_dot.jpg
    :align: center
 
 
@@ -117,7 +117,7 @@ VPN & Network
 VPN & Network
 =============
 
-.. figure:: _static/tinc_consulstart_network1.png
+.. figure:: _static/tinc_consulstart_network1.jpg
    :align: center
 
 .. note::
@@ -237,7 +237,7 @@ Let's do something Hip
 
 
 
-.. figure:: _static/Etcd.png
+.. figure:: _static/Etcd.jpg
    :align: center
 
 
@@ -272,7 +272,7 @@ Let's do the hippest thing imaginable
 =====================================
 
 
-.. figure:: _static/consul-logo.png
+.. figure:: _static/consul-logo.jpg
    :align: center
 
 
