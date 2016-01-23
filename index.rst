@@ -7,13 +7,18 @@
 Secure Peer Networking with TINC
 ================================
 
+.. figure:: _static/14x_logo_lg.png
+   :align: left
+   :width: 300px
+
 Spencer Krum
+
+Jan 23rd, 2016
 
 IBM
 
 @nibalizer
 
-nibz@spencerkrum.com
 
 .. note::
 
