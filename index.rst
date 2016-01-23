@@ -22,6 +22,13 @@ nibz@spencerkrum.com
    * github
 
 
+Portland
+========
+
+.. figure:: _static/mt_hood.jpg
+   :align: center
+
+
 Logos
 =====
 
@@ -70,9 +77,9 @@ Tinc Fast Facts
     * Portable (\*nix, Windows, Android, IOS incoming)
     * Daemon
     * 99% 2 Developers
+    * freenode channel / mailing list / dev process
     * 15 % link speed slowdown in the cloud
     * Port 655 in /etc/services
-    * freenode channel
 
 
 The Network
@@ -84,10 +91,8 @@ The Network
 
 .. note::
 
-    * Use this with my friends
-      ** not prod lol
-    * Bringing back the network
-    ** https as the only service sucks
+    * Use this with my friends /  not prod lol
+    * Bringing back the network / https as the only service sucks
     * University Network
     * LAN Parties
     * Services
@@ -124,7 +129,7 @@ VPN & Network
 
    * tinc has a concept of 'connect to'
    * Connections don't have to be reflexive
-   * Netwokr trafic is bidirectional regardless
+   * Network trafic is bidirectional regardless
    * These nodes are laptops or servers or home routers
    * basically comes down to which nodes have a known public ip
    * public/private keys
@@ -183,6 +188,7 @@ https://github.com/nibalizer/tincstat
    * go utility
    * run as a daemon, partialy parses the log output
    * the motivation for me was to put it into my statusbar on my computer
+   * 1.1 will bring a tinc info command, control socket
 
 
 Now What
@@ -237,7 +243,7 @@ Let's do something Hip
 
 
 
-.. figure:: _static/Etcd.jpg
+.. figure:: _static/Etcd.png
    :align: center
 
 
@@ -315,9 +321,17 @@ X11
 * Designed to be run over a network
 * Can listen on a TCP socket
 * Ever wonder what DISPLAY=:0 was actually doing?
-  * Can set DISPLAY=192.168.1.100:0 to run over a network
-  * Useful combined with xpra (screen for X)
 
+** Can set DISPLAY=192.168.1.100:0 to run over a network
+** Useful combined with xpra (screen for X)
+
+
+What's Next
+===========
+
+* Indexing
+* Tinc 1.1
+* Development
 
 
 Conclusions
