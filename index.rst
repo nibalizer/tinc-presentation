@@ -11,13 +11,13 @@ Secure Peer Networking with TINC
    :align: left
    :width: 300px
 
-Spencer Krum
+Spencer Krum, IBM
 
 Jan 23rd, 2016
 
-IBM
-
 @nibalizer
+
+http://spencerkrum.com
 
 
 .. note::
