@@ -7,13 +7,14 @@
 Secure Peer Networking with TINC
 ================================
 
-.. figure:: _static/14x_logo_lg.png
+.. figure:: _static/osu_lug_logo.png
    :align: left
    :width: 300px
 
 Spencer Krum, IBM
 
-Jan 23rd, 2016
+Feb 16, 2016
+
 
 @nibalizer
 
@@ -294,6 +295,19 @@ Let's do the hippest thing imaginable
   * consul can also do nagios-like healthchecks, to evaluate which services have died and which have not
   * these are hackers so services are going up and going down all the time
 
+
+Let's Get back to basics
+========================
+
+
+.. figure:: _static/2000px-Avahi-logo.svg.png
+   :align: center
+
+.. note::
+  * avahi is the original zeroconf 
+  * operates between layer 2 and 3
+  * service publishing
+  * dhcp-like thing avahi-autoipd
 
 Demo
 ====
