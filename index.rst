@@ -378,5 +378,7 @@ nibz@spencerkrum.com
 
 https://github.com/nibalizer/tinc-presentation
 
+Note that the 'lug' branch is where this particular presentation lives
+
 
 
