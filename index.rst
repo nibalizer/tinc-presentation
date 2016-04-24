@@ -7,14 +7,13 @@
 Secure Peer Networking with TINC
 ================================
 
-.. figure:: _static/osu_lug_logo.png
+.. figure:: _static/TuxTotem.png
    :align: left
    :width: 300px
 
 Spencer Krum, IBM
 
-Feb 16, 2016
-
+April 24th, 2016
 
 @nibalizer
 
@@ -86,6 +85,16 @@ Tinc Fast Facts
     * freenode channel / mailing list / dev process
     * 15 % link speed slowdown in the cloud
     * Port 655 in /etc/services
+
+
+Tinc Crypto
+===========
+
+.. code-block:: bash
+
+    ldd `which tincd`
+    libcrypto.so.1.0.0 => /lib/x86_64-linux-gnu/libcrypto.so.1.0.0 (0x00007fb270d0f000)
+
 
 
 The Network
@@ -362,6 +371,14 @@ Conclusions
 * StarCraft is an excellent game
 
 
+References
+==========
+
+
+* http://tinc-vpn.org/
+* http://tinc-vpn.org/security/
+
+
 Thank You
 =========
 
@@ -378,7 +395,7 @@ nibz@spencerkrum.com
 
 https://github.com/nibalizer/tinc-presentation
 
-Note that the 'lug' branch is where this particular presentation lives
+Note that the 'lfnw' branch is where this particular presentation lives
 
 
 
