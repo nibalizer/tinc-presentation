@@ -350,8 +350,8 @@ X11
 * Can listen on a TCP socket
 * Ever wonder what DISPLAY=:0 was actually doing?
 
-** Can set DISPLAY=192.168.1.100:0 to run over a network
-** Useful combined with xpra (screen for X)
+* Can set DISPLAY=192.168.1.100:0 to run over a network
+* Useful combined with xpra (screen for X)
 
 
 What's Next
