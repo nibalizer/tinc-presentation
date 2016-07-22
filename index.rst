@@ -7,13 +7,13 @@
 Secure Peer Networking with TINC
 ================================
 
-.. figure:: _static/sasag-top-1.png
+.. figure:: _static/hope.png
    :align: left
    :width: 300px
 
 Spencer Krum, IBM
 
-May 11th, 2016
+July 22nd, 2016
 
 @nibalizer
 
@@ -395,7 +395,7 @@ nibz@spencerkrum.com
 
 https://github.com/nibalizer/tinc-presentation
 
-Note that the 'seasag' branch is where this particular presentation lives
+Note that the 'hope11' tag/branch is where this particular presentation lives
 
 
 
