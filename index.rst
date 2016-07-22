@@ -17,7 +17,7 @@ July 22nd, 2016
 
 @nibalizer
 
-http://spencerkrum.com
+http://spencerkrum.com/talks/tinc-hope11-2016/
 
 
 .. note::
@@ -116,6 +116,53 @@ The Network
 
 
 
+
+VPN & Network
+=============
+
+.. figure:: _static/test1.png
+   :align: center
+
+.. note::
+
+   * These nodes are laptops or servers or home routers
+
+
+VPN & Network
+=============
+
+.. figure:: _static/tinc_nodes_connections.png
+   :align: center
+
+.. note::
+
+   * tinc has a concept of 'connect to'
+   * Connections don't have to be reflexive
+   * basically comes down to which nodes have a known public ip
+   * public/private keys
+
+VPN & Network
+=============
+
+.. figure:: _static/tinc_nodes_connections_two_ended.png
+   :align: center
+
+.. note::
+
+   * Network trafic is bidirectional regardless
+   * Re-routes around failures
+
+VPN & Network
+=============
+
+.. figure:: _static/tinc_nodes_ip_layer.png
+   :align: center
+
+.. note::
+
+  * Flat IP space
+  * Daemon = node
+
 VPN & Network
 =============
 
@@ -131,23 +178,6 @@ VPN & Network
   * Daemon = node
   * Each daemon responsible for a subnet and an ip addr
   * Continually probes for most efficient routes
-  * Re-routes around failures
-
-
-VPN & Network
-=============
-
-.. figure:: _static/tinc_consulstart_network1.jpg
-   :align: center
-
-.. note::
-
-   * tinc has a concept of 'connect to'
-   * Connections don't have to be reflexive
-   * Network trafic is bidirectional regardless
-   * These nodes are laptops or servers or home routers
-   * basically comes down to which nodes have a known public ip
-   * public/private keys
 
 
 Getting Status
